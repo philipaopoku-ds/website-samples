@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asanka Kitchen | Ghanaian Food and Catering in Calgary</title>
+<meta name="description" content="Jollof, waakye, light soup and kelewele, cooked fresh daily in Calgary. Dine in, take out or book Asanka Kitchen to cater your next event.">
+<style id="fonts">@font-face{font-family:"Bricolage Grotesque";src:url("fonts/bricolage-grotesque-latin-standard-normal.woff2") format("woff2");font-weight:200 800;font-style:normal;font-stretch:75% 100%;font-display:swap}@font-face{font-family:"Figtree";src:url("fonts/figtree-latin-wght-normal.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}</style>
+<style>
+:root{
+  --leaf:#1E4D36;
+  --leaf-2:#163B29;
+  --pepper:#C2361B;
+  --gold:#E6A532;
+  --cocoa:#2A1A12;
+  --plate:#FFFDF8;
+  --sand:#F4EBDD;
+  --muted:#6B5A4E;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Figtree",system-ui,sans-serif;color:var(--cocoa);background:var(--plate);font-size:1.0625rem;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1140px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;line-height:1.05;letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;padding:14px 24px;border-radius:999px;border:2px solid transparent;font:inherit;font-weight:700;cursor:pointer}
+.btn-pepper{background:var(--pepper);color:#fff}
+.btn-pepper:hover{background:#A82C14}
+.btn-line{border-color:#ffffff66;color:#fff}
+.btn-line:hover{border-color:#fff}
+
+/* header */
+header{background:var(--leaf);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.45rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{width:34px;height:34px}
+nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+nav a{text-decoration:none;color:#E3EDE6;font-weight:500}
+nav a:hover{color:#fff}
+nav .btn{padding:10px 18px;color:#fff}
+.menu-toggle{display:none;background:none;border:1px solid #ffffff55;color:#fff;border-radius:999px;padding:8px 14px;font:inherit}
+
+/* hero */
+.hero{background:var(--leaf);color:#fff;padding:40px 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,5rem);font-weight:800}
+.hero p{margin-top:20px;font-size:1.2rem;color:#D6E5DB;max-width:36ch}
+.hero .actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.plate{width:100%;max-width:520px;margin:0 auto 40px;filter:drop-shadow(0 30px 40px #0b241866)}
+.kente{height:28px;background:
+  repeating-linear-gradient(90deg,var(--gold) 0 46px,var(--leaf-2) 46px 54px,var(--pepper) 54px 70px,var(--leaf-2) 70px 78px,var(--gold) 78px 96px,#0E2A1C 96px 112px);
+  position:relative}
+.kente::after{content:"";position:absolute;inset:9px 0;background:repeating-linear-gradient(90deg,transparent 0 20px,#ffffff55 20px 24px)}
+
+/* info strip */
+.info{background:var(--sand)}
+.info .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:26px 0}
+.info div{display:flex;gap:14px;align-items:flex-start}
+.info svg{flex:none;width:26px;height:26px;margin-top:2px}
+.info strong{display:block}
+.info span{color:var(--muted);font-size:.98rem}
+
+section{padding:96px 0}
+.head{max-width:640px;margin-bottom:44px}
+.head h2{font-size:clamp(2rem,4vw,3rem)}
+.head p{margin-top:12px;color:var(--muted)}
+
+/* menu */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.tab{font:inherit;font-weight:600;padding:10px 20px;border-radius:999px;border:2px solid var(--cocoa);background:transparent;color:var(--cocoa);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--cocoa);color:var(--plate)}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:6px 64px}
+.panel[hidden]{display:none}
+.dish{padding:20px 0;border-bottom:1px dashed #CDBBA8}
+.dish-top{display:flex;align-items:baseline;gap:12px}
+.dish h3{font-size:1.3rem;font-weight:700}
+.dish .dots{flex:1;border-bottom:2px dotted #CDBBA8;transform:translateY(-5px)}
+.dish .price{font-weight:700;font-size:1.1rem}
+.dish p{color:var(--muted);margin-top:4px;font-size:.98rem}
+.tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-size:.78rem;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--sand)}
+.tags .hot{background:#F6D6CC;color:#8E2410}
+.tags .veg{background:#D9EAD9;color:var(--leaf)}
+.legend{margin-top:26px;color:var(--muted);font-size:.9rem}
+
+/* catering */
+.catering{background:var(--leaf);color:#fff}
+.catering .head p{color:#D6E5DB}
+.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pkg{background:var(--leaf-2);border-radius:24px;padding:30px;border:1px solid #2E6047}
+.pkg.featured{background:var(--gold);color:var(--cocoa);border-color:var(--gold)}
+.pkg h3{font-size:1.5rem}
+.pkg .size{margin-top:4px;opacity:.85}
+.pkg .cost{font-family:"Bricolage Grotesque",sans-serif;font-size:2.4rem;font-weight:800;margin-top:20px}
+.pkg .cost small{font-family:"Figtree",sans-serif;font-size:1rem;font-weight:500;opacity:.85}
+.pkg ul{margin-top:16px;list-style:none;display:grid;gap:8px}
+.pkg li{padding-left:22px;position:relative}
+.pkg li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.pkg.featured li::before{background:var(--pepper)}
+.cater-form{margin-top:48px;background:var(--plate);color:var(--cocoa);border-radius:24px;padding:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cater-form h3{grid-column:1/-1;font-size:1.6rem}
+.cater-form .full{grid-column:1/-1}
+.cater-form .two{grid-column:span 2}
+label{display:block;font-weight:600;font-size:.92rem;margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;padding:12px 14px;border:1.5px solid #CDBBA8;border-radius:12px;background:#fff;color:var(--cocoa)}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--gold);outline-offset:0;border-color:var(--cocoa)}
+textarea{min-height:100px}
+.status{grid-column:1/-1;display:none;background:var(--sand);padding:12px 16px;border-radius:12px;font-weight:600}
+
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.hours{width:100%;border-collapse:collapse;margin-top:10px}
+.hours td{padding:12px 0;border-bottom:1px solid #E5D8C7}
+.hours td:last-child{text-align:right;font-weight:600}
+.hours tr.today td{color:var(--pepper)}
+.address{background:var(--sand);border-radius:24px;padding:34px}
+.address h3{font-size:1.6rem}
+.address p{margin-top:10px;color:var(--muted)}
+.address .btn{margin-top:22px}
+
+footer{background:var(--cocoa);color:#CDBBA8;padding:34px 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+@media (max-width:900px){
+  nav ul{display:none;position:absolute;left:0;right:0;top:72px;background:var(--leaf);flex-direction:column;align-items:flex-start;padding:20px;gap:18px;z-index:10}
+  nav ul.open{display:flex}
+  .menu-toggle{display:block}
+  .hero .wrap,.visit .wrap{grid-template-columns:1fr}
+  .plate{max-width:360px;margin-bottom:20px}
+  .info .wrap{grid-template-columns:1fr}
+  .panel{grid-template-columns:1fr}
+  .packages{grid-template-columns:1fr}
+  .cater-form{grid-template-columns:1fr;padding:24px}
+  .cater-form .two{grid-column:auto}
+  section{padding:68px 0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M3 15h28a14 14 0 0 1-28 0z" fill="#E6A532"/><path d="M8 15c2-5 6-8 9-8s7 3 9 8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      Asanka Kitchen
+    </a>
+    <nav aria-label="Main">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+      <ul id="nav-list">
+        <li><a href="#menu">Our menu</a></li>
+        <li><a href="#catering">Catering</a></li>
+        <li><a href="#visit">Hours and location</a></li>
+        <li><a class="btn btn-pepper" href="#visit">Order for pickup</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title" style="padding-bottom:0">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">Ghanaian home cooking, right here in Calgary.</h1>
+      <p>Smoky jollof, waakye on Saturdays and light soup that tastes like home. Cooked fresh every morning in Forest Lawn.</p>
+      <div class="actions">
+        <a class="btn btn-pepper" href="#menu">See today's menu</a>
+        <a class="btn btn-line" href="#catering">Book us for an event</a>
+      </div>
+    </div>
+    <svg class="plate" viewBox="0 0 400 400" role="img" aria-label="Illustration of a plate of jollof rice with fried plantain, chicken and fresh salad">
+      <circle cx="200" cy="200" r="190" fill="#FFFDF8"/>
+      <circle cx="200" cy="200" r="168" fill="none" stroke="#E6A532" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <!-- jollof -->
+      <path d="M90 210c0-70 50-120 115-120s105 45 105 95c0 35-25 50-60 55-40 6-55 35-95 35-40 0-65-25-65-65z" fill="#D9541E"/>
+      <g fill="#F28A3C">
+        <ellipse cx="140" cy="170" rx="6" ry="3" transform="rotate(-20 140 170)"/><ellipse cx="170" cy="140" rx="6" ry="3" transform="rotate(30 170 140)"/>
+        <ellipse cx="200" cy="175" rx="6" ry="3"/><ellipse cx="230" cy="130" rx="6" ry="3" transform="rotate(-40 230 130)"/>
+        <ellipse cx="260" cy="165" rx="6" ry="3" transform="rotate(15 260 165)"/><ellipse cx="150" cy="215" rx="6" ry="3" transform="rotate(50 150 215)"/>
+        <ellipse cx="190" cy="230" rx="6" ry="3" transform="rotate(-10 190 230)"/><ellipse cx="120" cy="245" rx="6" ry="3" transform="rotate(20 120 245)"/>
+        <ellipse cx="285" cy="200" rx="6" ry="3" transform="rotate(-30 285 200)"/><ellipse cx="215" cy="205" rx="6" ry="3" transform="rotate(40 215 205)"/>
+      </g>
+      <!-- plantain -->
+      <g>
+        <ellipse cx="270" cy="270" rx="34" ry="20" fill="#E6A532" transform="rotate(-25 270 270)"/>
+        <ellipse cx="300" cy="235" rx="30" ry="18" fill="#F0B84A" transform="rotate(-40 300 235)"/>
+        <ellipse cx="235" cy="300" rx="30" ry="18" fill="#D99327" transform="rotate(-10 235 300)"/>
+        <ellipse cx="270" cy="270" rx="16" ry="8" fill="#C27A1C" opacity=".5" transform="rotate(-25 270 270)"/>
+      </g>
+      <!-- chicken -->
+      <path d="M160 285c-25 5-45-10-40-30s30-25 50-15c15 7 30 6 40 16 8 8-2 22-15 20-12-2-20 5-35 9z" fill="#8A3B14"/>
+      <path d="M210 256l22-10" stroke="#F4EBDD" stroke-width="8" stroke-linecap="round"/>
+      <!-- salad -->
+      <g><circle cx="300" cy="140" r="22" fill="#2E7A4C"/><circle cx="318" cy="160" r="16" fill="#3E9660"/><circle cx="290" cy="118" r="10" fill="#C2361B"/><circle cx="322" cy="134" r="8" fill="#C2361B"/><path d="M286 152c10-6 22-4 30 4" stroke="#F4EBDD" stroke-width="3" fill="none"/></g>
+    </svg>
+  </div>
+  <div class="kente" role="presentation"></div>
+</section>
+
+<div class="info">
+  <div class="wrap">
+    <div><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#1E4D36" stroke-width="2.2"/><path d="M13 7v6l4 3" stroke="#C2361B" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg><p><strong id="today-hours">Open today 11 a.m. to 9 p.m.</strong><span>Closed Mondays</span></p></div>
+    <div><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 24s8-8 8-13a8 8 0 0 0-16 0c0 5 8 13 8 13z" fill="none" stroke="#1E4D36" stroke-width="2.2"/><circle cx="13" cy="11" r="3" fill="#C2361B"/></svg><p><strong>3204 17 Avenue SE, Calgary</strong><span>Free parking behind the building</span></p></div>
+    <div><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M5 4h5l2 6-3 2a13 13 0 0 0 5 5l2-3 6 2v5a2 2 0 0 1-2 2A19 19 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="#1E4D36" stroke-width="2.2" stroke-linejoin="round"/></svg><p><strong>403-555-0188</strong><span>Call ahead for pickup</span></p></div>
+  </div>
+</div>
+
+<section id="menu" aria-labelledby="menu-title">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="menu-title">Our menu</h2>
+      <p>Every plate is made to order. Ask us to make anything milder or hotter.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Menu sections">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-mains" id="t-mains">Mains</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-soups" id="t-soups" tabindex="-1">Soups and stews</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-sides" id="t-sides" tabindex="-1">Sides</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-drinks" id="t-drinks" tabindex="-1">Drinks</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-mains" aria-labelledby="t-mains">
+      <div class="dish"><div class="dish-top"><h3>Jollof with grilled chicken</h3><span class="dots"></span><span class="price">$19</span></div><p>Party-style smoky jollof, spiced grilled chicken thigh, fresh salad.</p><div class="tags"><span class="hot">Spicy</span><span>Gluten free</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Waakye special</h3><span class="dots"></span><span class="price">$21</span></div><p>Rice and beans with gari, spaghetti, boiled egg, wele and shito. Saturdays only.</p><div class="tags"><span class="hot">Spicy</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Red red</h3><span class="dots"></span><span class="price">$16</span></div><p>Black-eyed bean stew in palm oil with sweet fried plantain.</p><div class="tags"><span class="veg">Vegan</span><span>Gluten free</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Banku and tilapia</h3><span class="dots"></span><span class="price">$24</span></div><p>Whole grilled tilapia, fermented corn and cassava dough, pepper sauce.</p><div class="tags"><span class="hot">Spicy</span><span>Gluten free</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Fried rice with shrimp</h3><span class="dots"></span><span class="price">$20</span></div><p>Ghana-style fried rice with vegetables, shrimp and fried chicken.</p></div>
+      <div class="dish"><div class="dish-top"><h3>Kenkey and fried fish</h3><span class="dots"></span><span class="price">$18</span></div><p>Steamed fermented corn dough, crispy fish and fresh pepper.</p><div class="tags"><span class="hot">Spicy</span></div></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-soups" aria-labelledby="t-soups" hidden>
+      <div class="dish"><div class="dish-top"><h3>Light soup with goat</h3><span class="dots"></span><span class="price">$22</span></div><p>Tomato and pepper broth with tender goat. Choose fufu or omo tuo.</p><div class="tags"><span class="hot">Spicy</span><span>Gluten free</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Groundnut soup</h3><span class="dots"></span><span class="price">$22</span></div><p>Rich peanut soup with chicken and rice balls.</p><div class="tags"><span>Gluten free</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Palava sauce</h3><span class="dots"></span><span class="price">$18</span></div><p>Spinach and egusi stew with smoked fish and boiled yam.</p><div class="tags"><span>Gluten free</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Okro stew</h3><span class="dots"></span><span class="price">$19</span></div><p>Okra with beef and crab. Best with banku.</p><div class="tags"><span class="hot">Spicy</span></div></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-sides" aria-labelledby="t-sides" hidden>
+      <div class="dish"><div class="dish-top"><h3>Kelewele</h3><span class="dots"></span><span class="price">$7</span></div><p>Ginger and pepper spiced fried plantain, with roasted peanuts.</p><div class="tags"><span class="veg">Vegan</span><span class="hot">Spicy</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Sweet fried plantain</h3><span class="dots"></span><span class="price">$6</span></div><p>Ripe plantain, fried golden.</p><div class="tags"><span class="veg">Vegan</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Shito jar</h3><span class="dots"></span><span class="price">$12</span></div><p>Our house black pepper sauce to take home. 250 ml.</p><div class="tags"><span class="hot">Spicy</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Bofrot</h3><span class="dots"></span><span class="price">$6</span></div><p>Six warm puff-puff doughnuts dusted with sugar.</p><div class="tags"><span class="veg">Vegetarian</span></div></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-drinks" aria-labelledby="t-drinks" hidden>
+      <div class="dish"><div class="dish-top"><h3>Sobolo</h3><span class="dots"></span><span class="price">$5</span></div><p>Chilled hibiscus with ginger and pineapple.</p><div class="tags"><span class="veg">Vegan</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Asaana</h3><span class="dots"></span><span class="price">$5</span></div><p>Caramelised fermented corn drink, served cold.</p><div class="tags"><span class="veg">Vegan</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Fresh ginger juice</h3><span class="dots"></span><span class="price">$5</span></div><p>Sharp, sweet and very gingery.</p><div class="tags"><span class="veg">Vegan</span></div></div>
+      <div class="dish"><div class="dish-top"><h3>Malt</h3><span class="dots"></span><span class="price">$4</span></div><p>Ice-cold, non-alcoholic.</p></div>
+    </div>
+    <p class="legend">Tell us about any allergies when you order. Our kitchen handles peanuts, fish and shellfish.</p>
+  </div>
+</section>
+
+<section class="catering" id="catering" aria-labelledby="catering-title">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="catering-title">Catering for weddings, outdoorings and office lunches</h2>
+      <p>We cook, deliver and set up. Prices are per guest and include rice, a main, a side and disposable serving ware.</p>
+    </div>
+    <div class="packages">
+      <article class="pkg">
+        <h3>Small gathering</h3><p class="size">10 to 25 guests</p>
+        <p class="cost">$22 <small>per guest</small></p>
+        <ul><li>Jollof or fried rice</li><li>One protein</li><li>Kelewele or salad</li><li>Pickup or delivery</li></ul>
+      </article>
+      <article class="pkg featured">
+        <h3>Celebration</h3><p class="size">25 to 75 guests</p>
+        <p class="cost">$28 <small>per guest</small></p>
+        <ul><li>Two rice dishes</li><li>Two proteins</li><li>Two sides and sobolo</li><li>Delivery and setup</li></ul>
+      </article>
+      <article class="pkg">
+        <h3>Large event</h3><p class="size">75 guests or more</p>
+        <p class="cost">$34 <small>per guest</small></p>
+        <ul><li>Full custom menu</li><li>Soups with fufu or banku</li><li>Serving staff</li><li>Tasting before the event</li></ul>
+      </article>
+    </div>
+
+    <form class="cater-form" id="cater-form" novalidate>
+      <h3>Request a catering quote</h3>
+      <div><label for="c-name">Your name</label><input id="c-name" autocomplete="name" required></div>
+      <div><label for="c-email">Email</label><input id="c-email" type="email" autocomplete="email" required></div>
+      <div><label for="c-phone">Phone</label><input id="c-phone" type="tel" autocomplete="tel"></div>
+      <div><label for="c-date">Event date</label><input id="c-date" type="date"></div>
+      <div><label for="c-guests">Number of guests</label><input id="c-guests" type="number" min="10" placeholder="e.g. 40"></div>
+      <div><label for="c-pkg">Package</label><select id="c-pkg"><option>Small gathering</option><option selected>Celebration</option><option>Large event</option><option>Not sure yet</option></select></div>
+      <div class="full"><label for="c-notes">Anything we should know?</label><textarea id="c-notes" placeholder="Venue, dishes you'd love, dietary needs"></textarea></div>
+      <div class="full"><button class="btn btn-pepper" type="submit">Send quote request</button></div>
+      <p class="status" role="status" id="c-status"></p>
+    </form>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div>
+      <div class="head" style="margin-bottom:10px"><h2 id="visit-title">Hours and location</h2></div>
+      <table class="hours" aria-label="Opening hours">
+        <tbody>
+          <tr data-day="1"><td>Monday</td><td>Closed</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>11 a.m. to 9 p.m.</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>11 a.m. to 9 p.m.</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>11 a.m. to 9 p.m.</td></tr>
+          <tr data-day="5"><td>Friday</td><td>11 a.m. to 10 p.m.</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>10 a.m. to 10 p.m.</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>12 p.m. to 8 p.m.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="address">
+      <h3>Find us in Forest Lawn</h3>
+      <p>3204 17 Avenue SE, Calgary, AB<br>Two minutes from the Max Purple bus stop at 32 Street SE.</p>
+      <p>Phone 403-555-0188 to order for pickup.</p>
+      <a class="btn btn-pepper" href="https://www.google.com/maps/search/17+Avenue+SE+Calgary" target="_blank" rel="noopener">Get directions</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span class="year">2026</span> Asanka Kitchen</span>
+    <span>Concept website designed by Philipa Opoku. Asanka Kitchen is not a real restaurant.</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.year').forEach(e => e.textContent = new Date().getFullYear());
+// mobile nav
+const t = document.querySelector('.menu-toggle'), list = document.getElementById('nav-list');
+t.addEventListener('click', () => { const o = list.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Close' : 'Menu'; });
+list.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { list.classList.remove('open'); t.setAttribute('aria-expanded', false); t.textContent = 'Menu'; }));
+// tabs
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+function select(tab){
+  tabs.forEach(x => { const on = x === tab; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+  tab.focus();
+}
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => select(tab));
+  tab.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') select(tabs[(i + 1) % tabs.length]);
+    if (e.key === 'ArrowLeft') select(tabs[(i - 1 + tabs.length) % tabs.length]);
+  });
+});
+// today's hours
+const d = new Date().getDay(), row = document.querySelector(`tr[data-day="${d}"]`);
+if (row) { row.classList.add('today'); const h = row.lastElementChild.textContent; document.getElementById('today-hours').textContent = h === 'Closed' ? 'Closed today' : 'Open today ' + h; }
+// form
+const f = document.getElementById('cater-form'), s = document.getElementById('c-status');
+f.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('c-name').value.trim(), email = document.getElementById('c-email');
+  s.textContent = (!name || !email.value || !email.checkValidity())
+    ? 'Please add your name and a valid email so we can send your quote.'
+    : `Thanks, ${name.split(' ')[0]}. This is a concept website, so your request was not sent anywhere.`;
+  s.style.display = 'block';
+  if (name && email.checkValidity() && email.value) f.reset();
+});
+</script>
+</body>
+</html>

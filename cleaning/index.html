@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chinook Clean Co. | Home Cleaning in Calgary with Instant Prices</title>
+<meta name="description" content="Standard, deep and move-out home cleaning across Calgary. See your price instantly, book in two minutes, and get the same trusted cleaner every visit.">
+<style id="fonts">@font-face{font-family:"Plus Jakarta Sans";src:url("fonts/plus-jakarta-sans-latin-wght-normal.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}</style>
+<style>
+:root{
+  --teal:#0B5D5E;
+  --teal-2:#0A4B4C;
+  --mint:#DDF4EC;
+  --sun:#FFC24B;
+  --ink:#0F2A2B;
+  --muted:#4F6B6C;
+  --line:#CFE3DD;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);background:var(--white);font-size:1.0625rem;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{width:min(1140px,100% - 40px);margin-inline:auto}
+h1,h2,h3{line-height:1.08;letter-spacing:-.025em;font-weight:800}
+.btn{display:inline-block;text-decoration:none;font:inherit;font-weight:700;padding:15px 26px;border-radius:14px;border:none;cursor:pointer}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-sun:hover{background:#FFB21F}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-2)}
+
+header{background:var(--teal);color:#fff}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;text-decoration:none}
+.brand svg{width:32px;height:32px}
+nav ul{display:flex;list-style:none;gap:28px;align-items:center}
+nav a{text-decoration:none;color:#D4ECE6;font-weight:500}
+nav a:hover{color:#fff}
+nav .phone{color:#fff;font-weight:700}
+.menu-toggle{display:none;background:none;border:1.5px solid #ffffff66;color:#fff;border-radius:12px;padding:8px 14px;font:inherit}
+
+/* hero */
+.hero{background:var(--teal);color:#fff;padding:64px 0 90px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-180px;bottom:-260px;width:620px;height:620px;border-radius:50%;background:var(--teal-2)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 480px;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4.2rem)}
+.hero .sub{margin-top:20px;font-size:1.2rem;color:#D4ECE6;max-width:34ch}
+.trust{margin-top:34px;display:grid;gap:12px}
+.trust li{list-style:none;display:flex;gap:12px;align-items:center;color:#E9F6F2}
+.trust svg{flex:none;width:22px;height:22px}
+
+/* estimator */
+.estimator{background:var(--white);color:var(--ink);border-radius:24px;padding:30px;box-shadow:0 30px 60px #05303066}
+.estimator h2{font-size:1.45rem}
+.estimator .hint{color:var(--muted);font-size:.95rem;margin-top:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.field label,.field .lbl{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
+.stepper{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+.stepper button{width:44px;height:46px;border:none;background:var(--mint);color:var(--teal);font-size:1.3rem;font-weight:700;cursor:pointer}
+.stepper button:disabled{opacity:.4;cursor:default}
+.stepper output{flex:1;text-align:center;font-weight:700}
+fieldset{border:none;min-width:0;padding:0;margin:0}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:20px;background:var(--mint);padding:5px!important;border-radius:14px}
+.seg input,.freq input,.addons input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label{text-align:center;padding:10px 6px;border-radius:10px;font-weight:600;font-size:.92rem;cursor:pointer;color:var(--teal)}
+.seg input:checked + label{background:var(--white);color:var(--ink);box-shadow:0 2px 6px #0b5d5e26}
+.freq{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.freq label{border:1.5px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;font-size:.85rem;font-weight:600;line-height:1.25}
+.freq label small{display:block;font-weight:500;color:var(--teal);font-size:.78rem}
+.freq input:checked + label{border-color:var(--teal);background:var(--mint)}
+.addons{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.addons label{border:1.5px dashed var(--line);border-radius:999px;padding:6px 12px;font-size:.85rem;cursor:pointer}
+.addons input:checked + label{border-style:solid;border-color:var(--teal);background:var(--teal);color:#fff}
+.seg input:focus-visible + label,.freq input:focus-visible + label,.addons input:focus-visible + label{outline:3px solid var(--sun);outline-offset:2px}
+.total{margin-top:24px;display:flex;align-items:end;justify-content:space-between;gap:12px;border-top:1.5px solid var(--line);padding-top:18px}
+.total .price{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.total .per{color:var(--muted);font-size:.9rem}
+.total .save{display:block;color:var(--teal);font-weight:700;font-size:.9rem;min-height:1.4em}
+.estimator .btn{width:100%;margin-top:18px;text-align:center}
+
+section{padding:96px 0}
+.head{max-width:620px;margin-bottom:46px}
+.head h2{font-size:clamp(2rem,4vw,3rem)}
+.head p{margin-top:12px;color:var(--muted)}
+
+/* included */
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.room{background:var(--mint);border-radius:20px;padding:26px}
+.room svg{width:40px;height:40px}
+.room h3{font-size:1.2rem;margin:14px 0 10px}
+.room ul{list-style:none;display:grid;gap:8px;font-size:.95rem}
+.room li{padding-left:24px;position:relative}
+.room li::before{content:"";position:absolute;left:0;top:.42em;width:14px;height:8px;border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg)}
+.deep-note{margin-top:22px;color:var(--muted)}
+.deep-note strong{color:var(--ink)}
+
+/* how */
+.how{background:#F5FBF9}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;list-style:none;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:inline-flex;width:46px;height:46px;border-radius:14px;background:var(--sun);font-weight:800;font-size:1.2rem;align-items:center;justify-content:center;margin-bottom:18px}
+.steps h3{font-size:1.25rem;margin-bottom:8px}
+.steps p{color:var(--muted)}
+
+/* promise */
+.promise .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.promise h2{font-size:clamp(2rem,4vw,3rem)}
+.promise p{margin-top:16px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fact{border:1.5px solid var(--line);border-radius:20px;padding:22px}
+.fact strong{display:block;font-size:1.05rem}
+.fact span{color:var(--muted);font-size:.95rem}
+.areas{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.areas span{background:var(--mint);color:var(--teal);font-weight:600;font-size:.88rem;padding:6px 12px;border-radius:999px}
+
+/* faq */
+.faq .wrap{max-width:820px}
+details{border-bottom:1.5px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-weight:700;font-size:1.1rem;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:16px;font-size:1.6rem;color:var(--teal);font-weight:500}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 22px;color:var(--muted)}
+
+/* cta */
+.cta{background:var(--sun);padding:70px 0}
+.cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.cta h2{font-size:clamp(1.8rem,3.6vw,2.6rem);max-width:20ch}
+
+footer{background:var(--ink);color:#A9C4BF;padding:34px 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* dialog-like confirmation */
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:14px 20px;border-radius:14px;max-width:min(520px,calc(100% - 32px));box-shadow:0 20px 40px #0006;display:none;z-index:50}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .rooms{grid-template-columns:1fr 1fr}
+  .promise .wrap{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:var(--teal);flex-direction:column;align-items:flex-start;padding:20px;gap:16px;z-index:10}
+  nav ul.open{display:flex}
+  .menu-toggle{display:block}
+  .hero{padding:44px 0 60px}
+  .estimator{padding:22px}
+  .freq{grid-template-columns:1fr 1fr}
+  .rooms,.steps,.facts{grid-template-columns:1fr}
+  section{padding:68px 0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 18c5-1 8-5 10-10 1 6 5 9 10 10-6 1-9 4-10 10-1-6-5-9-10-10z" fill="#FFC24B"/><circle cx="25" cy="7" r="2.5" fill="#fff"/></svg>
+      Chinook Clean Co.
+    </a>
+    <nav aria-label="Main">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+      <ul id="nav-list">
+        <li><a href="#included">What's included</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a class="phone" href="tel:4035550199">403-555-0199</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">A spotless home, priced upfront.</h1>
+      <p class="sub">Home cleaning across Calgary with the same trusted cleaner every visit. See your price now and book in two minutes.</p>
+      <ul class="trust">
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#FFC24B"/><path d="M6 11l3.5 3.5L16 8" stroke="#0F2A2B" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>Insured, background-checked cleaners</li>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#FFC24B"/><path d="M6 11l3.5 3.5L16 8" stroke="#0F2A2B" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>We bring every supply, including eco-friendly options</li>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#FFC24B"/><path d="M6 11l3.5 3.5L16 8" stroke="#0F2A2B" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>Not happy? We come back within 24 hours, free</li>
+      </ul>
+    </div>
+
+    <form class="estimator" id="estimator" aria-labelledby="est-title" novalidate>
+      <h2 id="est-title">Get your price</h2>
+      <p class="hint">Change the options and your price updates instantly.</p>
+      <div class="row">
+        <div class="field"><span class="lbl" id="bed-l">Bedrooms</span>
+          <div class="stepper" role="group" aria-labelledby="bed-l"><button type="button" data-step="bed" data-d="-1" aria-label="Fewer bedrooms">−</button><output id="bed" aria-live="polite">2</output><button type="button" data-step="bed" data-d="1" aria-label="More bedrooms">+</button></div></div>
+        <div class="field"><span class="lbl" id="bath-l">Bathrooms</span>
+          <div class="stepper" role="group" aria-labelledby="bath-l"><button type="button" data-step="bath" data-d="-1" aria-label="Fewer bathrooms">−</button><output id="bath" aria-live="polite">1</output><button type="button" data-step="bath" data-d="1" aria-label="More bathrooms">+</button></div></div>
+      </div>
+      <fieldset class="seg"><legend class="sr-only">Type of clean</legend>
+        <input type="radio" name="type" id="ty1" value="1" checked><label for="ty1">Standard</label>
+        <input type="radio" name="type" id="ty2" value="1.6"><label for="ty2">Deep</label>
+        <input type="radio" name="type" id="ty3" value="1.9"><label for="ty3">Move-out</label>
+      </fieldset>
+      <fieldset class="freq"><legend class="sr-only">How often</legend>
+        <input type="radio" name="freq" id="f1" value="0"><label for="f1">Once<small>no discount</small></label>
+        <input type="radio" name="freq" id="f2" value="0.10"><label for="f2">Monthly<small>save 10%</small></label>
+        <input type="radio" name="freq" id="f3" value="0.15" checked><label for="f3">Every 2 weeks<small>save 15%</small></label>
+        <input type="radio" name="freq" id="f4" value="0.20"><label for="f4">Weekly<small>save 20%</small></label>
+      </fieldset>
+      <fieldset class="addons"><legend class="lbl" style="width:100%;font-size:.9rem;font-weight:700;margin-bottom:4px">Extras</legend>
+        <input type="checkbox" id="a1" value="35"><label for="a1">Inside fridge +$35</label>
+        <input type="checkbox" id="a2" value="35"><label for="a2">Inside oven +$35</label>
+        <input type="checkbox" id="a3" value="45"><label for="a3">Interior windows +$45</label>
+        <input type="checkbox" id="a4" value="25"><label for="a4">Laundry +$25</label>
+      </fieldset>
+      <div class="total">
+        <div><span class="per">Your price per visit</span><span class="save" id="save"></span></div>
+        <div class="price" id="price" aria-live="polite">$0</div>
+      </div>
+      <button class="btn btn-sun" type="submit">Book this clean</button>
+    </form>
+  </div>
+</section>
+
+<section id="included" aria-labelledby="inc-title">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="inc-title">What's included in every standard clean</h2>
+      <p>The same checklist every time, so nothing gets missed.</p>
+    </div>
+    <div class="rooms">
+      <article class="room">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="30" height="26" rx="4" fill="#fff" stroke="#0B5D5E" stroke-width="2.4"/><circle cx="14" cy="16" r="3" fill="#FFC24B"/><circle cx="26" cy="16" r="3" fill="#FFC24B"/><path d="M5 24h30" stroke="#0B5D5E" stroke-width="2.4"/></svg>
+        <h3>Kitchen</h3>
+        <ul><li>Counters and backsplash</li><li>Outside of appliances</li><li>Sink scrubbed and shined</li><li>Floors vacuumed and mopped</li></ul>
+      </article>
+      <article class="room">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 20h30v6a8 8 0 0 1-8 8H13a8 8 0 0 1-8-8z" fill="#fff" stroke="#0B5D5E" stroke-width="2.4"/><path d="M10 20V9a4 4 0 0 1 8 0" stroke="#0B5D5E" stroke-width="2.4" fill="none"/><circle cx="26" cy="12" r="2" fill="#FFC24B"/><circle cx="31" cy="15" r="1.5" fill="#FFC24B"/></svg>
+        <h3>Bathrooms</h3>
+        <ul><li>Toilet, tub and shower</li><li>Mirrors and fixtures</li><li>Cabinet fronts</li><li>Floors washed by hand</li></ul>
+      </article>
+      <article class="room">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="16" width="30" height="12" rx="4" fill="#fff" stroke="#0B5D5E" stroke-width="2.4"/><path d="M9 16v-4a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v4M9 28v4M31 28v4" stroke="#0B5D5E" stroke-width="2.4" fill="none"/><rect x="14" y="19" width="12" height="4" rx="2" fill="#FFC24B"/></svg>
+        <h3>Living areas</h3>
+        <ul><li>Dusting all reachable surfaces</li><li>Baseboards spot-cleaned</li><li>Glass and light switches</li><li>Carpets vacuumed</li></ul>
+      </article>
+      <article class="room">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 30V12M35 30v-8H5" stroke="#0B5D5E" stroke-width="2.4" fill="none"/><rect x="8" y="16" width="9" height="6" rx="3" fill="#FFC24B"/><path d="M5 22h30" stroke="#0B5D5E" stroke-width="2.4"/></svg>
+        <h3>Bedrooms</h3>
+        <ul><li>Beds made, linens changed</li><li>Dressers and nightstands dusted</li><li>Mirrors cleaned</li><li>Floors vacuumed</li></ul>
+      </article>
+    </div>
+    <p class="deep-note"><strong>Deep and move-out cleans</strong> also cover inside cabinets, baseboards by hand, door frames, vents and behind movable furniture.</p>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="head"><h2 id="how-title">How booking works</h2></div>
+    <ol class="steps">
+      <li><h3>Choose your clean</h3><p>Pick your home size and options above. The price you see is the price you pay.</p></li>
+      <li><h3>Pick a time</h3><p>Choose a day and a two-hour arrival window. We send a reminder the day before.</p></li>
+      <li><h3>Come home to clean</h3><p>Pay after the visit. Regular clients keep the same cleaner every time.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="promise" aria-labelledby="promise-title">
+  <div class="wrap">
+    <div>
+      <h2 id="promise-title">Local, careful and on time</h2>
+      <p>Chinook Clean Co. is a Calgary team of 18 cleaners. We pay above the living wage and train every cleaner for two weeks before their first visit, so the person in your home knows exactly what they're doing.</p>
+      <div class="areas" aria-label="Areas we serve">
+        <span>Beltline</span><span>Bridgeland</span><span>Mission</span><span>Kensington</span><span>Tuscany</span><span>Seton</span><span>Mahogany</span><span>Evanston</span><span>Signal Hill</span><span>and more</span>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><strong>Same cleaner</strong><span>For every regular visit</span></div>
+      <div class="fact"><strong>2-hour windows</strong><span>With a text when we're on the way</span></div>
+      <div class="fact"><strong>No contracts</strong><span>Pause or cancel any time</span></div>
+      <div class="fact"><strong>Pet friendly</strong><span>Tell us their names</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="head"><h2 id="faq-title">Questions people ask</h2></div>
+    <details><summary>Do I need to be home?</summary><p>No. Many clients leave a key or a door code. We store access details securely and never label keys with your address.</p></details>
+    <details><summary>What if something gets damaged?</summary><p>We're fully insured. Tell us within 48 hours and we'll repair or replace the item.</p></details>
+    <details><summary>Can I change or cancel a visit?</summary><p>Yes, free of charge with 24 hours' notice. Later cancellations are charged 50% of the visit price.</p></details>
+    <details><summary>Do you bring your own supplies?</summary><p>Yes, including a vacuum and microfibre cloths. Ask for our fragrance-free, eco-friendly kit at no extra cost.</p></details>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>Your first clean could be this week.</h2>
+    <a class="btn btn-teal" href="#estimator">Get my price</a>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span class="year">2026</span> Chinook Clean Co.</span>
+    <span>Concept website designed by Philipa Opoku. Chinook Clean Co. is not a real business.</span>
+  </div>
+</footer>
+<div class="toast" role="status" id="toast"></div>
+
+<script>
+document.querySelectorAll('.year').forEach(e => e.textContent = new Date().getFullYear());
+const t = document.querySelector('.menu-toggle'), list = document.getElementById('nav-list');
+t.addEventListener('click', () => { const o = list.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Close' : 'Menu'; });
+list.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { list.classList.remove('open'); t.setAttribute('aria-expanded', false); t.textContent = 'Menu'; }));
+
+const state = {bed: 2, bath: 1}, limits = {bed: [1, 6], bath: [1, 5]};
+const form = document.getElementById('estimator');
+function money(n){ return '$' + Math.round(n); }
+function calc(){
+  const base = 120 + (state.bed - 1) * 25 + (state.bath - 1) * 30;
+  const type = +form.querySelector('input[name="type"]:checked').value;
+  const disc = +form.querySelector('input[name="freq"]:checked').value;
+  const extras = [...form.querySelectorAll('.addons input:checked')].reduce((s, i) => s + +i.value, 0);
+  const full = base * type + extras;
+  const price = full * (1 - disc);
+  document.getElementById('price').textContent = money(price);
+  document.getElementById('save').textContent = disc ? `You save ${money(full - price)} a visit` : '';
+  document.getElementById('bed').textContent = state.bed;
+  document.getElementById('bath').textContent = state.bath;
+  form.querySelectorAll('[data-step]').forEach(b => {
+    const k = b.dataset.step, d = +b.dataset.d;
+    b.disabled = d < 0 ? state[k] <= limits[k][0] : state[k] >= limits[k][1];
+  });
+  return price;
+}
+form.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => { state[b.dataset.step] += +b.dataset.d; calc(); }));
+form.addEventListener('change', calc);
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const toast = document.getElementById('toast');
+  toast.textContent = `Your ${state.bed}-bedroom clean comes to ${money(calc())} a visit. This is a concept website, so no booking was made.`;
+  toast.style.display = 'block';
+  clearTimeout(window._tt); window._tt = setTimeout(() => toast.style.display = 'none', 6000);
+});
+calc();
+</script>
+</body>
+</html>

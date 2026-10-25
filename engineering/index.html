@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peakline Engineering | Process and Pipeline Engineering in Calgary</title>
+<meta name="description" content="Peakline Engineering helps Alberta operators design, upgrade and document process facilities and pipelines. Process design, pipeline integrity, turnaround planning and technical documentation.">
+<style id="fonts">@font-face{font-family:"Archivo";src:url("fonts/archivo-latin-standard-normal.woff2") format("woff2");font-weight:100 900;font-style:normal;font-stretch:62% 125%;font-display:swap}</style>
+<style>
+:root{
+  --ink:#10222E;
+  --ink-2:#1B3444;
+  --paper:#EEF2F0;
+  --white:#FFFFFF;
+  --line:#8FA8B8;
+  --hivis:#F3C300;
+  --text:#22323C;
+  --muted:#5A6B75;
+  --wide:125;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Archivo",system-ui,sans-serif;color:var(--text);background:var(--white);font-size:1.0625rem;line-height:1.6}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hivis);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+.display{font-stretch:118%;font-weight:800;letter-spacing:-.015em;line-height:1.04}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:20;background:var(--ink);color:var(--white);border-bottom:1px solid #2A4558}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-stretch:118%;font-weight:800;font-size:1.15rem}
+.brand svg{width:30px;height:30px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{text-decoration:none;font-size:.95rem;color:#C9D6DE}
+.nav a:hover{color:var(--white)}
+.nav .cta{background:var(--hivis);color:var(--ink);padding:10px 16px;font-weight:700;border-radius:2px}
+.nav .cta:hover{color:var(--ink);background:#FFD31F}
+.menu-btn{display:none;background:none;border:1px solid #3A566A;color:var(--white);padding:8px 12px;border-radius:2px;font:inherit;font-size:.9rem}
+
+/* hero */
+.hero{background:var(--ink);color:var(--white);padding:88px 0 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.1vw,3.5rem);max-width:15ch}
+.hero p.lead{margin-top:22px;font-size:1.2rem;color:#C9D6DE;max-width:34ch}
+.hero .actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:2px;border:2px solid transparent;font-size:1rem;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--hivis);color:var(--ink)}
+.btn-primary:hover{background:#FFD31F}
+.btn-ghost{border-color:#4B6779;color:var(--white)}
+.btn-ghost:hover{border-color:var(--white)}
+.hero-stats{margin-top:46px;display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid #2A4558;padding-top:22px}
+.hero-stats div{font-size:.9rem;color:#9FB3C0}
+.hero-stats strong{display:block;font-stretch:118%;font-size:1.6rem;color:var(--white)}
+.diagram{width:100%;height:auto}
+.diagram .pipe{stroke:var(--line);stroke-width:2.5;fill:none}
+.diagram .equip{stroke:#D7E2E8;stroke-width:2.5;fill:var(--ink-2)}
+.diagram .flow{stroke:var(--hivis);stroke-width:3;fill:none;stroke-dasharray:10 14;animation:flow 2.2s linear infinite}
+.diagram .tag{font-family:"Archivo",sans-serif;font-size:11px;fill:#9FB3C0;font-stretch:100%;letter-spacing:.04em}
+@keyframes flow{to{stroke-dashoffset:-48}}
+@media (prefers-reduced-motion:reduce){.diagram .flow{animation:none}}
+
+/* sections */
+section{padding:96px 0}
+.section-head{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:end;margin-bottom:56px}
+.section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--ink)}
+.section-head p{color:var(--muted);max-width:52ch}
+
+/* services */
+.services{background:var(--white)}
+.service-list{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
+.service{padding:34px 34px 38px 0;border-bottom:1px solid #D3DCE1;display:grid;grid-template-columns:56px 1fr;gap:20px}
+.service:nth-child(odd){border-right:1px solid #D3DCE1}
+.service:nth-child(even){padding-left:34px}
+.service svg{width:48px;height:48px}
+.service h3{font-stretch:108%;font-size:1.3rem;color:var(--ink);margin-bottom:8px}
+.service p{color:var(--muted);font-size:1rem}
+.service ul{margin-top:14px;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.service li{font-size:.85rem;background:var(--paper);color:var(--ink-2);padding:4px 10px;border-radius:2px}
+
+/* process */
+.process{background:var(--paper)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step;position:relative;list-style:none}
+.step{padding:0 28px 0 0;position:relative}
+.step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--hivis);font-weight:800;font-stretch:118%;margin-bottom:22px;position:relative;z-index:1}
+.step::after{content:"";position:absolute;top:22px;left:44px;right:0;height:2px;background:var(--line)}
+.step:last-child::after{display:none}
+.step h3{font-size:1.15rem;color:var(--ink);margin-bottom:8px;font-stretch:108%}
+.step p{color:var(--muted);font-size:.98rem}
+
+/* work */
+.work .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.project{border-top:6px solid var(--ink);padding-top:22px}
+.project .figure{font-stretch:118%;font-weight:800;font-size:2.6rem;color:var(--ink);line-height:1}
+.project .figure-label{font-size:.9rem;color:var(--muted);margin-top:6px}
+.project h3{margin-top:22px;font-size:1.15rem;color:var(--ink);font-stretch:108%}
+.project p{margin-top:8px;color:var(--muted);font-size:.98rem}
+.project .where{margin-top:14px;font-size:.85rem;color:var(--ink-2);font-weight:600}
+
+/* sectors band */
+.band{background:var(--ink);color:var(--white);padding:64px 0}
+.band .wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
+.band h2{font-size:1.6rem}
+.sectors{display:flex;flex-wrap:wrap;gap:10px}
+.sectors span{border:1px solid #3A566A;padding:8px 14px;border-radius:2px;font-size:.95rem;color:#D7E2E8}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--ink)}
+.about p{color:var(--muted);margin-top:18px}
+.about dl{display:grid;grid-template-columns:1fr 1fr;gap:28px 24px;border-top:2px solid var(--ink);padding-top:28px}
+.about dt{font-size:.9rem;color:var(--muted)}
+.about dd{font-stretch:108%;font-weight:700;color:var(--ink);font-size:1.1rem;margin-top:4px}
+
+/* contact */
+.contact{background:var(--paper)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:64px}
+.contact h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--ink)}
+.contact .details{margin-top:24px;display:grid;gap:16px}
+.contact .details div{font-size:1rem}
+.contact .details span{display:block;font-size:.85rem;color:var(--muted)}
+form{background:var(--white);padding:36px;border-top:6px solid var(--hivis);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+form .full{grid-column:1/-1}
+label{display:block;font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1px solid #B9C7CF;border-radius:2px;background:var(--white);color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--hivis);outline-offset:0;border-color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+.form-note{font-size:.85rem;color:var(--muted)}
+.form-status{grid-column:1/-1;font-weight:600;color:var(--ink);display:none;background:#FFF6CC;padding:12px 14px;border-left:4px solid var(--hivis)}
+
+/* footer */
+footer{background:var(--ink);color:#9FB3C0;padding:36px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.concept{color:#C9D6DE}
+
+@media (max-width:900px){
+  .nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--ink);flex-direction:column;align-items:flex-start;padding:20px;gap:18px;border-bottom:1px solid #2A4558}
+  .nav.open{display:flex}
+  .menu-btn{display:block}
+  .hero{padding:56px 0 64px}
+  .hero .wrap,.section-head,.about .wrap,.contact .wrap,.band .wrap{grid-template-columns:1fr;gap:32px}
+  .service-list{grid-template-columns:1fr}
+  .service,.service:nth-child(even){padding:28px 0;border-right:none}
+  .service:nth-child(odd){border-right:none}
+  .steps{grid-template-columns:1fr 1fr;gap:36px 0}
+  .step::after{display:none}
+  .work .projects{grid-template-columns:1fr;gap:40px}
+  section{padding:68px 0}
+}
+@media (max-width:560px){
+  .steps{grid-template-columns:1fr}
+  form{grid-template-columns:1fr;padding:24px}
+  .about dl{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Peakline Engineering home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 26 L13 9 L19 19 L23 13 L29 26 Z" fill="none" stroke="#F3C300" stroke-width="2.6" stroke-linejoin="round"/></svg>
+      Peakline
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#work">Projects</a>
+      <a href="#about">About</a>
+      <a class="cta" href="#contact">Request a proposal</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title" class="display">Process and pipeline engineering for Alberta operators.</h1>
+      <p class="lead">We design, upgrade and document oil and gas facilities, from a single tie-in to a full turnaround.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Request a proposal</a>
+        <a class="btn btn-ghost" href="#work">See recent projects</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>14 yrs</strong>in Alberta's energy sector</div>
+        <div><strong>120+</strong>projects delivered</div>
+        <div><strong>0</strong>lost-time incidents in 2025</div>
+      </div>
+    </div>
+    <svg class="diagram" viewBox="10 70 500 290" role="img" aria-label="Line drawing of a process flow: a separator vessel, pump and heat exchanger connected by pipes">
+      <!-- pipes -->
+      <path class="pipe" d="M20 250 H120"/>
+      <path class="pipe" d="M200 250 H260 V300 H300"/>
+      <path class="pipe" d="M160 140 V90 H420 V150"/>
+      <path class="pipe" d="M340 300 H420 V230"/>
+      <path class="pipe" d="M420 230 V200"/>
+      <path class="pipe" d="M460 175 H500"/>
+      <!-- animated flow -->
+      <path class="flow" d="M20 250 H120"/>
+      <path class="flow" d="M200 250 H260 V300 H300"/>
+      <path class="flow" d="M340 300 H420 V230"/>
+      <path class="flow" d="M460 175 H500"/>
+      <!-- separator vessel -->
+      <rect class="equip" x="120" y="140" width="80" height="170" rx="40"/>
+      <line x1="120" y1="225" x2="200" y2="225" stroke="#8FA8B8" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <!-- pump -->
+      <circle class="equip" cx="320" cy="300" r="22"/>
+      <path d="M306 300 L334 300 M326 292 L334 300 L326 308" stroke="#F3C300" stroke-width="2.5" fill="none"/>
+      <!-- exchanger -->
+      <rect class="equip" x="380" y="150" width="80" height="50" rx="6"/>
+      <path d="M392 175 h10 l6 -12 l8 24 l8 -24 l8 24 l6 -12 h14" stroke="#8FA8B8" stroke-width="2" fill="none"/>
+      <!-- valve -->
+      <path d="M232 240 l16 10 l-16 10 Z M264 240 l-16 10 l16 10 Z" fill="#1B3444" stroke="#D7E2E8" stroke-width="2"/>
+      <!-- tags -->
+      <text class="tag" x="128" y="330">V-101 SEPARATOR</text>
+      <text class="tag" x="296" y="345">P-201</text>
+      <text class="tag" x="384" y="222">E-301</text>
+      <text class="tag" x="22" y="238">INLET</text>
+      <text class="tag" x="226" y="232">XV-110</text>
+    </svg>
+  </div>
+</section>
+
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="services-title" class="display">What we do</h2>
+      <p>Four focused services, delivered by engineers who have worked on site. You get one team from the first study to the final as-built drawings.</p>
+    </div>
+    <div class="service-list">
+      <article class="service">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="6" width="24" height="36" rx="12" fill="none" stroke="#10222E" stroke-width="2.5"/><path d="M12 26h24" stroke="#F3C300" stroke-width="2.5"/></svg>
+        <div>
+          <h3>Process design</h3>
+          <p>Heat and material balances, equipment sizing and P&amp;IDs for new builds and debottlenecking.</p>
+          <ul><li>Process simulation</li><li>P&amp;IDs</li><li>Equipment sizing</li></ul>
+        </div>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 30h14v-12h26" fill="none" stroke="#10222E" stroke-width="2.5"/><circle cx="31" cy="18" r="5" fill="none" stroke="#F3C300" stroke-width="2.5"/></svg>
+        <div>
+          <h3>Pipeline integrity</h3>
+          <p>Inspection planning, risk assessments and repair recommendations that keep lines safe and compliant.</p>
+          <ul><li>Risk assessment</li><li>Inspection plans</li><li>Fitness for service</li></ul>
+        </div>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="36" height="30" fill="none" stroke="#10222E" stroke-width="2.5"/><path d="M6 18h36M16 6v8M32 6v8" stroke="#10222E" stroke-width="2.5"/><path d="M14 28l6 5 12-11" stroke="#F3C300" stroke-width="2.5" fill="none"/></svg>
+        <div>
+          <h3>Turnaround planning</h3>
+          <p>Scope, schedules and punch lists that bring units back online on the planned day.</p>
+          <ul><li>Scope definition</li><li>Scheduling</li><li>Punch list tracking</li></ul>
+        </div>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 4h18l8 8v32H12z" fill="none" stroke="#10222E" stroke-width="2.5"/><path d="M18 22h14M18 29h14M18 36h9" stroke="#F3C300" stroke-width="2.5"/></svg>
+        <div>
+          <h3>Technical documentation</h3>
+          <p>Clear operating procedures, management of change and reports that operators actually use.</p>
+          <ul><li>SOPs</li><li>Management of change</li><li>Operating reports</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="process-title" class="display">How a project runs</h2>
+      <p>Every project follows the same four stages, so you always know what happens next and who is responsible.</p>
+    </div>
+    <ol class="steps" role="list">
+      <li class="step"><h3>Site visit</h3><p>We walk the facility with your operators and agree the problem we are solving.</p></li>
+      <li class="step"><h3>Proposal</h3><p>A fixed scope, schedule and price within five business days.</p></li>
+      <li class="step"><h3>Engineering</h3><p>Weekly updates, with drawings and calculations shared as they are ready.</p></li>
+      <li class="step"><h3>Handover</h3><p>Stamped deliverables, as-built drawings and a walkthrough for your team.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="work" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="work-title" class="display">Recent projects</h2>
+      <p>A sample of recent work for producers and midstream operators across Alberta.</p>
+    </div>
+    <div class="projects">
+      <article class="project">
+        <div class="figure">3 days</div>
+        <div class="figure-label">ahead of the planned restart date</div>
+        <h3>Gas plant turnaround</h3>
+        <p>Planned and tracked 640 punch list items across four contractors for a scheduled shutdown.</p>
+        <div class="where">Midstream gas plant, central Alberta</div>
+      </article>
+      <article class="project">
+        <div class="figure">18%</div>
+        <div class="figure-label">more throughput from existing equipment</div>
+        <h3>Separator debottleneck</h3>
+        <p>Simulated the inlet system, resized internals and updated P&amp;IDs without a new vessel.</p>
+        <div class="where">Oil battery, southern Alberta</div>
+      </article>
+      <article class="project">
+        <div class="figure">42 km</div>
+        <div class="figure-label">of pipeline assessed</div>
+        <h3>Integrity program</h3>
+        <p>Risk-ranked every segment and built a five-year inspection plan the operator could budget for.</p>
+        <div class="where">Gathering system, northwest Alberta</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <h2 class="display">Who we work with</h2>
+    <div class="sectors">
+      <span>Oil producers</span><span>Gas processing</span><span>Midstream pipelines</span><span>Water handling</span><span>Utilities</span><span>EPC contractors</span>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div>
+      <h2 id="about-title" class="display">Engineers who have worked the plant floor</h2>
+      <p>Peakline is a Calgary engineering firm founded by process engineers who started their careers on site. We know what a procedure looks like at 3 a.m. during an upset, so we write and design for the people who run the plant.</p>
+      <p>We stay small on purpose. The engineer who scopes your project is the one who delivers it.</p>
+    </div>
+    <dl>
+      <div><dt>Based in</dt><dd>Calgary, Alberta</dd></div>
+      <div><dt>Team</dt><dd>12 engineers and technologists</dd></div>
+      <div><dt>Registered with</dt><dd>APEGA</dd></div>
+      <div><dt>Response time</dt><dd>Proposals in 5 business days</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-title" class="display">Tell us about your project</h2>
+      <p style="margin-top:16px;color:var(--muted)">Share a few details and an engineer will reply within one business day.</p>
+      <div class="details">
+        <div><span>Phone</span>403-555-0142</div>
+        <div><span>Email</span>projects@peakline.example</div>
+        <div><span>Office</span>Suite 900, 8 Avenue SW, Calgary, AB</div>
+      </div>
+    </div>
+    <form id="quote-form" novalidate>
+      <div><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+      <div><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div>
+      <div><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="service">Service needed</label>
+        <select id="service" name="service">
+          <option>Process design</option><option>Pipeline integrity</option><option>Turnaround planning</option><option>Technical documentation</option><option>Not sure yet</option>
+        </select></div>
+      <div class="full"><label for="message">Project details</label><textarea id="message" name="message" placeholder="Location, timeline and what you need help with"></textarea></div>
+      <div class="full"><button class="btn btn-primary" type="submit">Send project details</button></div>
+      <p class="form-status" role="status" id="form-status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span class="year">2026</span> Peakline Engineering</span>
+    <span class="concept">Concept website designed by Philipa Opoku. Peakline is not a real company.</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.year').forEach(e => e.textContent = new Date().getFullYear());
+  const btn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'Close' : 'Menu';
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); btn.textContent = 'Menu'; }));
+  const form = document.getElementById('quote-form'), status = document.getElementById('form-status');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.name.value.trim() || !form.email.checkValidity() || !form.email.value) {
+      status.textContent = 'Please add your name and a valid work email so we can reply.';
+    } else {
+      status.textContent = 'Thanks, ' + form.name.value.trim().split(' ')[0] + '. This is a concept website, so your details were not sent anywhere.';
+      form.reset();
+    }
+    status.style.display = 'block';
+  });
+</script>
+</body>
+</html>

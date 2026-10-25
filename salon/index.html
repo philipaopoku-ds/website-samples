@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crown &amp; Coil Studio | Braids and Natural Hair Care in Calgary</title>
+<meta name="description" content="Knotless braids, twists, locs and natural hair care in Calgary's Beltline. See prices and request an appointment online.">
+<style id="fonts">@font-face{font-family:"Cormorant Garamond";src:url("fonts/cormorant-garamond-latin-wght-normal.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}@font-face{font-family:"Jost";src:url("fonts/jost-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}</style>
+<style>
+:root{
+  --plum:#3A1C33;
+  --plum-2:#4E2846;
+  --blush:#F6E3DC;
+  --brass:#B98A3C;
+  --ink:#24161F;
+  --paper:#FFFAF7;
+  --muted:#6E5A66;
+  --line:#E8D3CB;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Jost",system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:1.05rem;line-height:1.65;font-weight:400}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.02;letter-spacing:-.01em}
+.btn{display:inline-block;text-decoration:none;font:inherit;font-weight:500;letter-spacing:.02em;padding:14px 28px;border-radius:999px;border:1.5px solid transparent;cursor:pointer}
+.btn-plum{background:var(--plum);color:#fff}
+.btn-plum:hover{background:var(--plum-2)}
+.btn-outline{border-color:var(--plum);color:var(--plum);background:transparent}
+.btn-outline:hover{background:var(--plum);color:#fff}
+
+/* header */
+header{position:absolute;top:0;left:0;right:0;z-index:10}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
+.brand{font-family:"Cormorant Garamond",serif;font-size:1.7rem;font-weight:600;text-decoration:none;color:var(--plum)}
+nav ul{list-style:none;display:flex;gap:30px;align-items:center}
+nav a{text-decoration:none;color:var(--ink)}
+nav a:hover{color:var(--plum)}
+nav .btn{padding:10px 22px}
+.menu-toggle{display:none;font:inherit;background:none;border:1.5px solid var(--plum);color:var(--plum);border-radius:999px;padding:8px 16px}
+
+/* hero */
+.hero{background:var(--blush);padding:150px 0 90px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(3rem,7vw,5.6rem);color:var(--plum)}
+.hero p{margin-top:24px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .actions{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .note{margin-top:28px;font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:10px}
+.hero .note::before{content:"";width:8px;height:8px;border-radius:50%;background:#3E8E5B;flex:none}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 18px 18px;background:var(--plum);overflow:hidden;position:relative;max-width:420px;margin-left:auto;width:100%}
+.arch svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* services */
+section{padding:100px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:48px;flex-wrap:wrap}
+.head h2{font-size:clamp(2.4rem,5vw,3.6rem);color:var(--plum)}
+.head p{color:var(--muted);max-width:44ch}
+.price-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.group h3{font-size:1.8rem;color:var(--plum);padding-bottom:12px;border-bottom:1.5px solid var(--plum);margin-bottom:6px}
+.item{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.item .name{font-weight:500}
+.item .price{font-weight:500;color:var(--plum)}
+.item .meta{color:var(--muted);font-size:.92rem}
+.item button{grid-column:2;grid-row:2;justify-self:end;font:inherit;font-size:.88rem;color:var(--plum);background:none;border:none;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+.price-note{margin-top:30px;color:var(--muted);font-size:.95rem}
+
+/* styles strip */
+.styles{background:var(--plum);color:#fff}
+.styles .head h2{color:#fff}
+.styles .head p{color:#E5CFD9}
+.style-row{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.style-card .shape{aspect-ratio:3/4;border-radius:999px 999px 14px 14px;background:var(--plum-2);overflow:hidden}
+.style-card svg{width:100%;height:100%}
+.style-card h3{font-size:1.5rem;margin-top:14px}
+.style-card p{color:#E5CFD9;font-size:.95rem}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about blockquote{font-family:"Cormorant Garamond",serif;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.15;color:var(--plum);font-weight:500}
+.about .who{margin-top:20px;color:var(--muted)}
+.about h2{font-size:2.4rem;color:var(--plum)}
+.about p{margin-top:16px;color:var(--muted)}
+.policies{margin-top:26px;display:grid;gap:12px}
+.policies div{padding-left:18px;border-left:2px solid var(--brass)}
+.policies strong{display:block;font-weight:500;color:var(--ink)}
+
+/* booking */
+.booking{background:var(--blush)}
+.booking .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.booking h2{font-size:clamp(2.4rem,5vw,3.6rem);color:var(--plum)}
+.booking .side p{margin-top:16px;color:var(--muted)}
+.hours{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:6px 24px;font-size:.98rem}
+.hours dt{color:var(--muted)}
+form{background:var(--paper);border-radius:28px;padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+form .full{grid-column:1/-1}
+label,.legend{display:block;font-weight:500;font-size:.95rem;margin-bottom:8px}
+input,select,textarea{width:100%;font:inherit;padding:13px 16px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brass);outline-offset:0;border-color:var(--plum)}
+fieldset{border:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips label{margin:0;font-weight:400;padding:9px 16px;border:1.5px solid var(--line);border-radius:999px;cursor:pointer;background:#fff}
+.chips input:checked + label{background:var(--plum);border-color:var(--plum);color:#fff}
+.chips input:focus-visible + label{outline:2px solid var(--brass);outline-offset:2px}
+.estimate{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;background:var(--blush);flex-wrap:wrap}
+.estimate strong{font-family:"Cormorant Garamond",serif;font-size:1.8rem;color:var(--plum);font-weight:600}
+.status{grid-column:1/-1;display:none;padding:14px 18px;border-radius:14px;background:#EAF3EC;color:#24513A;font-weight:500}
+
+footer{background:var(--ink);color:#CDB9C4;padding:34px 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:920px){
+  header{position:absolute}
+  nav ul{display:none;position:absolute;top:84px;left:20px;right:20px;background:var(--paper);flex-direction:column;align-items:flex-start;padding:22px;border-radius:20px;box-shadow:0 20px 40px #3a1c3326}
+  nav ul.open{display:flex}
+  .menu-toggle{display:block}
+  .hero{padding:120px 0 64px}
+  .hero .wrap,.about .wrap,.booking .wrap{grid-template-columns:1fr;gap:40px}
+  .arch{max-width:300px;margin:0 auto}
+  .price-groups{grid-template-columns:1fr;gap:40px}
+  .style-row{grid-template-columns:1fr 1fr}
+  form{grid-template-columns:1fr;padding:26px}
+  section{padding:72px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Crown &amp; Coil</a>
+    <nav aria-label="Main">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+      <ul id="nav-list">
+        <li><a href="#services">Services and prices</a></li>
+        <li><a href="#styles">Styles</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="btn btn-plum" href="#book">Book an appointment</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">Braids, twists and natural hair care, done gently.</h1>
+      <p>A calm Beltline studio for textured hair. We take our time, protect your edges and send you home with styles that last.</p>
+      <div class="actions">
+        <a class="btn btn-plum" href="#book">Book an appointment</a>
+        <a class="btn btn-outline" href="#services">See prices</a>
+      </div>
+      <p class="note">Taking new clients for November</p>
+    </div>
+    <div class="arch" role="img" aria-label="Illustration of flowing coils and braid lines">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="#B98A3C" stroke-width="2.2" stroke-linecap="round">
+          <path d="M40 420 C40 300 110 300 110 200 S40 80 80 -20"/>
+          <path d="M80 420 C80 300 150 300 150 200 S80 80 120 -20"/>
+          <path d="M120 420 C120 300 190 300 190 200 S120 80 160 -20"/>
+          <path d="M160 420 C160 300 230 300 230 200 S160 80 200 -20"/>
+          <path d="M200 420 C200 300 270 300 270 200 S200 80 240 -20"/>
+          <path d="M240 420 C240 300 310 300 310 200 S240 80 280 -20"/>
+        </g>
+        <g fill="none" stroke="#F6E3DC" stroke-width="2" opacity=".85">
+          <circle cx="210" cy="120" r="34"/><circle cx="210" cy="120" r="22"/><circle cx="210" cy="120" r="11"/>
+          <circle cx="90" cy="300" r="28"/><circle cx="90" cy="300" r="17"/><circle cx="90" cy="300" r="7"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="services-title">Services and prices</h2>
+      <p>Prices include washing and blow-drying. Braiding hair is included for all braided styles.</p>
+    </div>
+    <div class="price-groups">
+      <div class="group">
+        <h3>Braids</h3>
+        <div class="item"><span class="name">Knotless braids, medium</span><span class="price">$220</span><span class="meta">5 to 6 hours</span><button data-service="Knotless braids, medium">Book this</button></div>
+        <div class="item"><span class="name">Knotless braids, small</span><span class="price">$290</span><span class="meta">7 to 8 hours</span><button data-service="Knotless braids, small">Book this</button></div>
+        <div class="item"><span class="name">Feed-in cornrows</span><span class="price">$95</span><span class="meta">2 hours</span><button data-service="Feed-in cornrows">Book this</button></div>
+        <div class="item"><span class="name">Kids' braids, under 12</span><span class="price">$110</span><span class="meta">3 hours</span><button data-service="Kids' braids">Book this</button></div>
+      </div>
+      <div class="group">
+        <h3>Twists and locs</h3>
+        <div class="item"><span class="name">Two-strand twists, natural hair</span><span class="price">$120</span><span class="meta">3 hours</span><button data-service="Two-strand twists">Book this</button></div>
+        <div class="item"><span class="name">Passion twists</span><span class="price">$200</span><span class="meta">4 to 5 hours</span><button data-service="Passion twists">Book this</button></div>
+        <div class="item"><span class="name">Loc retwist and style</span><span class="price">$110</span><span class="meta">2.5 hours</span><button data-service="Loc retwist">Book this</button></div>
+        <div class="item"><span class="name">Starter locs</span><span class="price">$160</span><span class="meta">3 to 4 hours</span><button data-service="Starter locs">Book this</button></div>
+      </div>
+      <div class="group">
+        <h3>Natural hair care</h3>
+        <div class="item"><span class="name">Wash, deep condition and style</span><span class="price">$75</span><span class="meta">1.5 hours</span><button data-service="Wash and deep condition">Book this</button></div>
+        <div class="item"><span class="name">Silk press</span><span class="price">$110</span><span class="meta">2 hours</span><button data-service="Silk press">Book this</button></div>
+        <div class="item"><span class="name">Trim and shape</span><span class="price">$55</span><span class="meta">45 minutes</span><button data-service="Trim and shape">Book this</button></div>
+        <div class="item"><span class="name">Scalp treatment</span><span class="price">$45</span><span class="meta">40 minutes</span><button data-service="Scalp treatment">Book this</button></div>
+      </div>
+    </div>
+    <p class="price-note">Hair past mid-back adds $30 to braided styles. Not sure what to book? Choose a free 15-minute consultation in the form below.</p>
+  </div>
+</section>
+
+<section class="styles" id="styles" aria-labelledby="styles-title">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="styles-title">Styles we love doing</h2>
+      <p>Every style starts with your hair's health. We'll tell you honestly what will last and what won't.</p>
+    </div>
+    <div class="style-row">
+      <figure class="style-card">
+        <div class="shape"><svg viewBox="0 0 150 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g stroke="#B98A3C" stroke-width="5" stroke-linecap="round" stroke-dasharray="6 5">
+          <path d="M30 10V210"/><path d="M50 10V210"/><path d="M70 10V210"/><path d="M90 10V210"/><path d="M110 10V210"/><path d="M130 10V210"/></g></svg></div>
+        <figcaption><h3>Knotless braids</h3><p>Lightweight and gentle on the scalp.</p></figcaption>
+      </figure>
+      <figure class="style-card">
+        <div class="shape"><svg viewBox="0 0 150 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#F6E3DC" stroke-width="3">
+          <path d="M20 0 q12 15 0 30 t0 30 t0 30 t0 30 t0 30 t0 30 t0 30"/><path d="M32 0 q-12 15 0 30 t0 30 t0 30 t0 30 t0 30 t0 30 t0 30"/>
+          <path d="M65 0 q12 15 0 30 t0 30 t0 30 t0 30 t0 30 t0 30 t0 30"/><path d="M77 0 q-12 15 0 30 t0 30 t0 30 t0 30 t0 30 t0 30 t0 30"/>
+          <path d="M110 0 q12 15 0 30 t0 30 t0 30 t0 30 t0 30 t0 30 t0 30"/><path d="M122 0 q-12 15 0 30 t0 30 t0 30 t0 30 t0 30 t0 30 t0 30"/></g></svg></div>
+        <figcaption><h3>Twists</h3><p>Two-strand, passion or Senegalese.</p></figcaption>
+      </figure>
+      <figure class="style-card">
+        <div class="shape"><svg viewBox="0 0 150 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g stroke="#B98A3C" stroke-width="12" stroke-linecap="round">
+          <path d="M30 0 C26 60 36 120 30 210"/><path d="M60 0 C64 60 54 120 60 210"/><path d="M90 0 C86 60 96 120 90 210"/><path d="M120 0 C124 60 114 120 120 210"/></g></svg></div>
+        <figcaption><h3>Locs</h3><p>Starters, retwists and loc styling.</p></figcaption>
+      </figure>
+      <figure class="style-card">
+        <div class="shape"><svg viewBox="0 0 150 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#F6E3DC" stroke-width="4" stroke-dasharray="5 5" stroke-linecap="round">
+          <path d="M-10 40 C40 20 110 20 160 40"/><path d="M-10 75 C40 55 110 55 160 75"/><path d="M-10 110 C40 90 110 90 160 110"/><path d="M-10 145 C40 125 110 125 160 145"/><path d="M-10 180 C40 160 110 160 160 180"/></g></svg></div>
+        <figcaption><h3>Cornrows</h3><p>Straight-back or your own design.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div>
+      <blockquote>“Healthy hair first. A beautiful style is easy when the hair underneath is cared for.”</blockquote>
+      <p class="who">Ama, founder and lead stylist</p>
+    </div>
+    <div>
+      <h2 id="about-title">A studio built around your comfort</h2>
+      <p>Long appointments should feel easy. We have padded chairs, phone chargers at every station, tea and snacks, and a strict no-rushing rule.</p>
+      <div class="policies">
+        <div><strong>$30 deposit to book</strong>It comes off your final price.</div>
+        <div><strong>Come with hair detangled</strong>Or add a wash for $20 and we'll do it for you.</div>
+        <div><strong>48 hours to reschedule</strong>Your deposit moves with you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="book" aria-labelledby="book-title">
+  <div class="wrap">
+    <div class="side">
+      <h2 id="book-title">Request an appointment</h2>
+      <p>Tell us what you'd like and when. We'll confirm your time by text within a day.</p>
+      <dl class="hours">
+        <dt>Tuesday to Friday</dt><dd>10 a.m. to 7 p.m.</dd>
+        <dt>Saturday</dt><dd>8 a.m. to 6 p.m.</dd>
+        <dt>Sunday and Monday</dt><dd>Closed</dd>
+        <dt>Studio</dt><dd>1012 11 Avenue SW, Calgary</dd>
+        <dt>Text or call</dt><dd>587-555-0127</dd>
+      </dl>
+    </div>
+    <form id="book-form" novalidate>
+      <div class="full"><label for="b-service">Service</label>
+        <select id="b-service">
+          <option value="" data-price="">Choose a service</option>
+          <option data-price="0">Free 15-minute consultation</option>
+          <option data-price="220">Knotless braids, medium</option><option data-price="290">Knotless braids, small</option><option data-price="95">Feed-in cornrows</option><option data-price="110">Kids' braids</option>
+          <option data-price="120">Two-strand twists</option><option data-price="200">Passion twists</option><option data-price="110">Loc retwist</option><option data-price="160">Starter locs</option>
+          <option data-price="75">Wash and deep condition</option><option data-price="110">Silk press</option><option data-price="55">Trim and shape</option><option data-price="45">Scalp treatment</option>
+        </select></div>
+      <fieldset class="full">
+        <legend class="legend">Hair length</legend>
+        <div class="chips">
+          <input type="radio" name="len" id="len1" value="0" checked><label for="len1">Shoulder or shorter</label>
+          <input type="radio" name="len" id="len2" value="0"><label for="len2">Bra strap</label>
+          <input type="radio" name="len" id="len3" value="30"><label for="len3">Past mid-back</label>
+        </div>
+      </fieldset>
+      <div><label for="b-date">Preferred date</label><input id="b-date" type="date"></div>
+      <fieldset>
+        <legend class="legend">Time of day</legend>
+        <div class="chips">
+          <input type="radio" name="time" id="t1" checked><label for="t1">Morning</label>
+          <input type="radio" name="time" id="t2"><label for="t2">Afternoon</label>
+        </div>
+      </fieldset>
+      <div><label for="b-name">Your name</label><input id="b-name" autocomplete="name"></div>
+      <div><label for="b-phone">Mobile number</label><input id="b-phone" type="tel" autocomplete="tel"></div>
+      <div class="estimate" aria-live="polite"><span>Estimated price</span><strong id="estimate">Choose a service</strong></div>
+      <div class="full"><button class="btn btn-plum" type="submit">Send request</button></div>
+      <p class="status" role="status" id="b-status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span class="year">2026</span> Crown &amp; Coil Studio</span>
+    <span>Concept website designed by Philipa Opoku. Crown &amp; Coil is not a real business.</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.year').forEach(e => e.textContent = new Date().getFullYear());
+const t = document.querySelector('.menu-toggle'), list = document.getElementById('nav-list');
+t.addEventListener('click', () => { const o = list.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Close' : 'Menu'; });
+list.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { list.classList.remove('open'); t.setAttribute('aria-expanded', false); t.textContent = 'Menu'; }));
+
+const sel = document.getElementById('b-service'), est = document.getElementById('estimate');
+function update(){
+  const opt = sel.selectedOptions[0];
+  if (!opt || opt.dataset.price === '') { est.textContent = 'Choose a service'; return; }
+  const base = +opt.dataset.price;
+  const braided = /braid|cornrow|twist/i.test(opt.text) && !/Two-strand/.test(opt.text);
+  const extra = braided ? +document.querySelector('input[name="len"]:checked').value : 0;
+  est.textContent = base === 0 ? 'Free' : '$' + (base + extra);
+}
+sel.addEventListener('change', update);
+document.querySelectorAll('input[name="len"]').forEach(r => r.addEventListener('change', update));
+document.querySelectorAll('.item button').forEach(b => b.addEventListener('click', () => {
+  const opt = [...sel.options].find(o => o.text === b.dataset.service);
+  if (opt) { sel.value = opt.value; update(); }
+  document.getElementById('book').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+  setTimeout(() => sel.focus({preventScroll:true}), 400);
+}));
+const f = document.getElementById('book-form'), s = document.getElementById('b-status');
+f.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('b-name').value.trim(), phone = document.getElementById('b-phone').value.trim();
+  if (!sel.value || !name || !phone) { s.textContent = 'Please choose a service and add your name and mobile number.'; s.style.background = '#FBE9E4'; s.style.color = '#7A2E1D'; }
+  else { s.textContent = `Thanks, ${name.split(' ')[0]}. This is a concept website, so no appointment was requested.`; s.style.background = ''; s.style.color = ''; f.reset(); update(); }
+  s.style.display = 'block';
+});
+</script>
+</body>
+</html>
