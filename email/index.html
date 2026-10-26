@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Automation Case Study | Philipa Opoku</title>
+<meta name="description" content="A Mailchimp welcome series and abandoned-cart automation for an online textile shop: strategy, customer journeys, four designed emails and how results would be measured.">
+<style>
+@font-face{font-family:"Familjen Grotesk";src:url("../fonts/familjen-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("../fonts/instrument-serif-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+:root{--ink:#16192B;--indigo:#1E2A5A;--gold:#E0A526;--green:#2D7A4B;--paper:#F7F7F5;--muted:#5D6175;--line:#E2E2DC;--soft:#E7EBF8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Familjen Grotesk",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:1.0625rem}
+a{color:var(--indigo)}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:var(--soft);padding:1px 6px;border-radius:6px;white-space:nowrap}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1100px,100% - 40px);margin-inline:auto}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1}
+.top{padding:22px 0;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.top a{text-decoration:none;font-weight:600}
+header.intro{padding:70px 0 40px}
+header.intro .kicker{color:var(--muted);font-weight:600}
+header.intro h1{font-size:clamp(2.6rem,6vw,4.6rem);margin-top:10px;max-width:16ch}
+header.intro p.lead{margin-top:20px;font-size:1.2rem;color:var(--muted);max-width:60ch}
+.facts{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.facts dt{font-size:.88rem;color:var(--muted)}
+.facts dd{font-weight:700;margin-top:2px}
+section{padding:70px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(2rem,4vw,3rem)}
+section > .wrap > p{color:var(--muted);margin-top:12px;max-width:64ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:30px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card ul{padding-left:20px;color:var(--muted)}
+.card li{margin:4px 0}
+
+/* journey diagram */
+.journeys{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:34px}
+.journey{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+.journey h3{font-size:1.25rem}
+.journey .sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+.flow{display:flex;flex-direction:column;align-items:center}
+.node{width:100%;max-width:320px;border-radius:12px;padding:12px 16px;text-align:center;font-weight:600;font-size:.97rem;border:1.5px solid var(--line);background:var(--paper)}
+.node small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.node.trigger{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.node.trigger small{color:#C9CFEA}
+.node.email{background:var(--soft);border-color:#C9D2EE}
+.node.wait{background:#fff;border-style:dashed;font-weight:500;color:var(--muted);max-width:200px;padding:8px 12px}
+.node.decide{background:#FFF4D9;border-color:#F0D08A}
+.node.end{background:#E3F1E8;border-color:#BBDCC6;color:var(--green)}
+.arrow{width:2px;height:22px;background:#B9BED0;position:relative}
+.arrow::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top-color:#B9BED0;border-bottom:0}
+.branch{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;margin-top:0}
+.branch .col{display:flex;flex-direction:column;align-items:center}
+.label{font-size:.8rem;font-weight:700;color:var(--muted);margin:6px 0 2px}
+
+/* email previews */
+.previews{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:34px}
+.preview{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.preview .meta{padding:18px 20px;border-bottom:1px solid var(--line)}
+.preview .when{font-size:.85rem;font-weight:700;color:var(--green)}
+.preview .subject{font-weight:700;margin-top:4px}
+.preview .pre{font-size:.92rem;color:var(--muted)}
+.frame{height:520px;overflow:hidden;background:var(--paper)}
+.frame img{display:block;width:100%;height:auto}
+.preview a.open{display:block;padding:14px 20px;font-weight:700;text-decoration:none;border-top:1px solid var(--line)}
+
+/* measure */
+table.kpi{width:100%;border-collapse:collapse;margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.kpi th,.kpi td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.kpi th{background:var(--soft);font-size:.92rem}
+.kpi td:first-child{font-weight:700;white-space:nowrap}
+.kpi td{color:var(--muted)}
+.kpi td:first-child{color:var(--ink)}
+.ab{margin-top:22px}
+.ab div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-top:8px}
+.ab b{color:var(--indigo);margin-right:8px}
+
+footer{padding:34px 0;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
+@media (max-width:860px){
+  .facts{grid-template-columns:1fr 1fr}
+  .two,.journeys,.previews{grid-template-columns:1fr}
+  .frame{height:460px}
+  .kpi td:first-child{white-space:normal}
+}
+@media (max-width:520px){.facts{grid-template-columns:1fr}.kpi th,.kpi td{padding:10px 10px;font-size:.92rem}.kpi thead{display:none}.kpi,.kpi tbody,.kpi tr,.kpi td{display:block;width:100%}.kpi tr{border-bottom:1px solid var(--line);padding:6px 0}.kpi td{border:none;padding:4px 14px}.kpi td:nth-child(2)::before{content:"Shows: ";font-weight:700;color:var(--ink)}.kpi td:nth-child(3)::before{content:"If low: ";font-weight:700;color:var(--ink)}.frame{height:400px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="../">← All website concepts</a><a href="../shop/">View the Nsaa shop</a></div></div>
+
+<header class="intro">
+  <div class="wrap">
+    <p class="kicker">Email marketing case study, concept project</p>
+    <h1 class="serif">Turning new subscribers into first-time buyers</h1>
+    <p class="lead">For Nsaa Textiles, a fictional online fabric shop, I planned and designed two Mailchimp automations: a three-email welcome series for new subscribers and an abandoned-cart email for shoppers who leave before paying.</p>
+    <dl class="facts">
+      <div><dt>Platform</dt><dd>Mailchimp Customer Journeys</dd></div>
+      <div><dt>Emails designed</dt><dd>4, mobile-friendly</dd></div>
+      <div><dt>Automations</dt><dd>Welcome series, abandoned cart</dd></div>
+      <div><dt>My role</dt><dd>Strategy, copy, design, HTML</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="goal">
+  <div class="wrap">
+    <h2 id="goal" class="serif">The goal</h2>
+    <p>Most people who join a shop's email list don't buy straight away, and many shoppers abandon their cart before paying. Two automations address both moments, running in the background without manual work.</p>
+    <div class="two">
+      <div class="card"><h3>Who it's for</h3><ul><li>New subscribers who signed up on the website</li><li>Shoppers who added items to their cart but didn't check out</li><li>Mostly Canadians who love African textiles, sewists and gift buyers</li></ul></div>
+      <div class="card"><h3>What success looks like</h3><ul><li>More subscribers make a first purchase within 7 days</li><li>Abandoned carts recovered without discounting</li><li>Low unsubscribe rate, because emails are useful, not pushy</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="journeys">
+  <div class="wrap">
+    <h2 id="journeys" class="serif">The customer journeys</h2>
+    <p>How each automation is set up in Mailchimp's Customer Journey builder: what starts it, the waits between emails, and the branch that stops customers getting sales emails after they buy.</p>
+    <div class="journeys">
+      <div class="journey">
+        <h3>Journey 1: Welcome series</h3>
+        <p class="sub">Builds trust first, then a gentle nudge.</p>
+        <div class="flow" role="img" aria-label="Welcome series: subscriber signs up, receives email 1 immediately, waits 2 days, receives email 2, waits 3 days, then if they have purchased they are tagged as a customer and exit; if not they receive email 3.">
+          <div class="node trigger">Contact signs up<small>Website signup form, consent given</small></div><div class="arrow"></div>
+          <div class="node email">Email 1: Welcome + 10% code<small>Sent immediately</small></div><div class="arrow"></div>
+          <div class="node wait">Wait 2 days</div><div class="arrow"></div>
+          <div class="node email">Email 2: The hands behind your cloth<small>Brand story, no hard sell</small></div><div class="arrow"></div>
+          <div class="node wait">Wait 3 days</div><div class="arrow"></div>
+          <div class="node decide">Has the contact purchased?</div>
+          <div class="branch">
+            <div class="col"><span class="label">Yes</span><div class="arrow"></div><div class="node end">Tag "Customer" and exit</div></div>
+            <div class="col"><span class="label">No</span><div class="arrow"></div><div class="node email">Email 3: Code ends tomorrow<small>Bestsellers + reminder</small></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="journey">
+        <h3>Journey 2: Abandoned cart</h3>
+        <p class="sub">A helpful reminder, not a discount.</p>
+        <div class="flow" role="img" aria-label="Abandoned cart: shopper abandons cart, wait 1 hour, if they have not purchased they receive the abandoned cart email, then exit.">
+          <div class="node trigger">Shopper abandons cart<small>From the connected online store</small></div><div class="arrow"></div>
+          <div class="node wait">Wait 1 hour</div><div class="arrow"></div>
+          <div class="node decide">Purchased since?</div>
+          <div class="branch">
+            <div class="col"><span class="label">Yes</span><div class="arrow"></div><div class="node end">Exit</div></div>
+            <div class="col"><span class="label">No</span><div class="arrow"></div><div class="node email">Abandoned-cart email<small>Their item + free shipping note</small></div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:24px;background:var(--paper)">
+          <h3>Why no discount here?</h3>
+          <p style="color:var(--muted)">Offering a discount every time trains shoppers to abandon carts on purpose. Instead, the email reminds them their order already ships free and invites questions, which answers the most common reasons people hesitate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="emails">
+  <div class="wrap">
+    <h2 id="emails" class="serif">The four emails</h2>
+    <p>Each email is hand-coded in HTML that works in Gmail, Outlook and Apple Mail, adapts to phones, uses real text instead of text inside images, and includes alt text, a preheader, and an unsubscribe link.</p>
+    <div class="previews">
+      <article class="preview">
+        <div class="meta"><p class="when">Welcome series, sent immediately</p><p class="subject">Akwaaba! Here is 10% off your first order</p><p class="pre">Welcome to Nsaa. Your code is inside, plus what makes our cloth different.</p></div>
+        <div class="frame"><img src="images/prev-welcome-1.jpg" alt="Preview: Welcome email 1 with kente banner and WELCOME10 code" loading="lazy" width="990" height="1230"></div>
+        <a class="open" href="welcome-1.html">Open full email</a>
+      </article>
+      <article class="preview">
+        <div class="meta"><p class="when">Welcome series, day 2</p><p class="subject">The hands behind your cloth</p><p class="pre">How a single strip of kente is woven, and why we pay half before work begins.</p></div>
+        <div class="frame"><img src="images/prev-welcome-2.jpg" alt="Preview: Welcome email 2 telling the story of the weavers" loading="lazy" width="990" height="1230"></div>
+        <a class="open" href="welcome-2.html">Open full email</a>
+      </article>
+      <article class="preview">
+        <div class="meta"><p class="when">Welcome series, day 5, non-buyers only</p><p class="subject">Your 10% off ends tomorrow</p><p class="pre">Our four most-loved pieces, and a last reminder about your welcome code.</p></div>
+        <div class="frame"><img src="images/prev-welcome-3.jpg" alt="Preview: Welcome email 3 showing four bestselling products" loading="lazy" width="990" height="1230"></div>
+        <a class="open" href="welcome-3.html">Open full email</a>
+      </article>
+      <article class="preview">
+        <div class="meta"><p class="when">Abandoned cart, 1 hour after leaving</p><p class="subject">You left something lovely behind</p><p class="pre">Your cart is saved. Orders over $100 ship free across Canada.</p></div>
+        <div class="frame"><img src="images/prev-abandoned-cart.jpg" alt="Preview: Abandoned cart email showing the saved kente fabric" loading="lazy" width="990" height="1230"></div>
+        <a class="open" href="abandoned-cart.html">Open full email</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="setup">
+  <div class="wrap">
+    <h2 id="setup" class="serif">How it's set up in Mailchimp</h2>
+    <div class="two">
+      <div class="card"><h3>Audience and data</h3><ul>
+        <li>One audience with a signup form on the website</li>
+        <li>Merge field for first name, used as <code>*|FNAME|*</code> to personalise greetings</li>
+        <li>Tags: "Welcome series" and "Customer"</li>
+        <li>Interest groups for Fabric, Scarves, Bags and Home, used for future targeted campaigns</li>
+      </ul></div>
+      <div class="card"><h3>Consent and accessibility</h3><ul>
+        <li>Signup form asks for clear permission to email, as Canada's anti-spam law (CASL) requires</li>
+        <li>Every email names the sender and includes an unsubscribe link</li>
+        <li>Text at 14px or larger, strong colour contrast, alt text on every image</li>
+        <li>Key information in live text, so it shows even when images are blocked</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="measure">
+  <div class="wrap">
+    <h2 id="measure" class="serif">How I'd measure results</h2>
+    <p>These are the numbers I would track in Mailchimp reports after launch, and what each one tells the business.</p>
+    <table class="kpi">
+      <thead><tr><th scope="col">Metric</th><th scope="col">What it shows</th><th scope="col">What I'd do if it's low</th></tr></thead>
+      <tbody>
+        <tr><td>Open rate</td><td>Whether subject lines and the sender name earn attention</td><td>Test new subject lines; check the sender name is recognisable</td></tr>
+        <tr><td>Click rate</td><td>Whether the content and buttons are compelling</td><td>Move the main button higher; make one clear call to action per email</td></tr>
+        <tr><td>Conversion rate</td><td>How many recipients go on to buy</td><td>Review product choice and the offer; check the shop's checkout</td></tr>
+        <tr><td>Revenue per email</td><td>The money each automation brings in</td><td>Compare journeys and focus effort on the strongest</td></tr>
+        <tr><td>Unsubscribe rate</td><td>Whether emails feel too frequent or salesy</td><td>Lengthen waits; add more useful, non-sales content</td></tr>
+      </tbody>
+    </table>
+    <div class="ab">
+      <h3 style="margin-top:28px">First A/B test: welcome email subject line</h3>
+      <div><b>A</b>Akwaaba! Here is 10% off your first order</div>
+      <div><b>B</b>Welcome to Nsaa, {first name}. Your gift is inside</div>
+      <p style="color:var(--muted);margin-top:10px">Send each version to half the new subscribers for a set period, then keep the one with more clicks.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">Concept project by Philipa Opoku. Nsaa Textiles is a fictional brand; no real emails are sent from this page.</div></footer>
+</body>
+</html>

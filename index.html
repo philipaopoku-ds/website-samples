@@ -33,6 +33,7 @@ header .links a{font-weight:600;color:var(--accent)}
 .site .open{font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:4px}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:.92rem}
 @media (max-width:760px){.grid{grid-template-columns:1fr}.site:first-child{grid-column:auto}header{padding:56px 0 36px}}
+@media (max-width:760px){a.site[href="email/"]{grid-template-columns:1fr!important;padding:20px!important}}
 </style>
 </head>
 <body>
@@ -78,6 +79,13 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-s
     <p class="built">Product filters and sorting, a working cart with quantities and a free-shipping tracker.</p>
   </a>
 </main>
+<section class="wrap" style="padding:0 0 90px">
+  <a class="site" href="email/" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;text-decoration:none">
+    <div><p class="kind">Email marketing case study</p><h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:2.4rem;line-height:1;margin-top:6px">Nsaa Textiles welcome and abandoned-cart automations</h2>
+    <p class="built" style="margin-top:12px">Mailchimp customer journeys, four hand-coded emails, and a plan for measuring results.</p><p style="margin-top:14px"><span class="open">Read the case study</span></p></div>
+    <div class="shot"><img src="previews/email.jpg" alt="Preview of the Nsaa welcome email with a kente pattern banner and a 10% welcome code" width="800" height="500"></div>
+  </a>
+</section>
 <footer><div class="wrap">© <span id="y">2026</span> Philipa Opoku. All businesses shown are fictional.</div></footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
