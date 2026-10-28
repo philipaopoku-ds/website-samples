@@ -5,8 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Crown &amp; Coil Studio | Braids and Natural Hair Care in Calgary</title>
 <meta name="description" content="Knotless braids, twists, locs and natural hair care in Calgary's Beltline. See prices and request an appointment online.">
-<style id="fonts">@font-face{font-family:"Cormorant Garamond";src:url("fonts/cormorant-garamond-latin-wght-normal.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}@font-face{font-family:"Jost";src:url("fonts/jost-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}</style>
+<style id="fonts">
+/* portfolio typography */
+h1,h2,h3{font-family:"Playfair Display",Georgia,"Times New Roman",serif;letter-spacing:-.005em}
+body *{font-variant-numeric:lining-nums}
+</style>
 <style>
+@font-face{font-family:"Playfair Display";src:url("../fonts/playfair-display-latin-wght-normal.woff2") format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("../fonts/source-sans-3-latin-wght-normal.woff2") format("woff2");font-weight:200 900;font-display:swap}
+
 :root{
   --plum:#3A1C33;
   --plum-2:#4E2846;
@@ -19,11 +26,11 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Jost",system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:1.05rem;line-height:1.65;font-weight:400}
+body{font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:1.05rem;line-height:1.65;font-weight:400}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.02;letter-spacing:-.01em}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;line-height:1.02;letter-spacing:-.01em}
 .btn{display:inline-block;text-decoration:none;font:inherit;font-weight:500;letter-spacing:.02em;padding:14px 28px;border-radius:999px;border:1.5px solid transparent;cursor:pointer}
 .btn-plum{background:var(--plum);color:#fff}
 .btn-plum:hover{background:var(--plum-2)}
@@ -33,7 +40,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-hei
 /* header */
 header{position:absolute;top:0;left:0;right:0;z-index:10}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
-.brand{font-family:"Cormorant Garamond",serif;font-size:1.7rem;font-weight:600;text-decoration:none;color:var(--plum)}
+.brand{font-family:"Playfair Display",serif;font-size:1.7rem;font-weight:600;text-decoration:none;color:var(--plum)}
 nav ul{list-style:none;display:flex;gap:30px;align-items:center}
 nav a{text-decoration:none;color:var(--ink)}
 nav a:hover{color:var(--plum)}
@@ -77,7 +84,7 @@ section{padding:100px 0}
 
 /* about */
 .about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
-.about blockquote{font-family:"Cormorant Garamond",serif;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.15;color:var(--plum);font-weight:500}
+.about blockquote{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.15;color:var(--plum);font-weight:500}
 .about .who{margin-top:20px;color:var(--muted)}
 .about h2{font-size:2.4rem;color:var(--plum)}
 .about p{margin-top:16px;color:var(--muted)}
@@ -104,7 +111,7 @@ fieldset{border:none}
 .chips input:checked + label{background:var(--plum);border-color:var(--plum);color:#fff}
 .chips input:focus-visible + label{outline:2px solid var(--brass);outline-offset:2px}
 .estimate{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;background:var(--blush);flex-wrap:wrap}
-.estimate strong{font-family:"Cormorant Garamond",serif;font-size:1.8rem;color:var(--plum);font-weight:600}
+.estimate strong{font-family:"Playfair Display",serif;font-size:1.8rem;color:var(--plum);font-weight:600}
 .status{grid-column:1/-1;display:none;padding:14px 18px;border-radius:14px;background:#EAF3EC;color:#24513A;font-weight:500}
 
 footer{background:var(--ink);color:#CDB9C4;padding:34px 0;font-size:.92rem}

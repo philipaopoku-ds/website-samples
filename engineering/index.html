@@ -5,8 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Peakline Engineering | Process and Pipeline Engineering in Calgary</title>
 <meta name="description" content="Peakline Engineering helps Alberta operators design, upgrade and document process facilities and pipelines. Process design, pipeline integrity, turnaround planning and technical documentation.">
-<style id="fonts">@font-face{font-family:"Archivo";src:url("fonts/archivo-latin-standard-normal.woff2") format("woff2");font-weight:100 900;font-style:normal;font-stretch:62% 125%;font-display:swap}</style>
+<style id="fonts">
+/* portfolio typography */
+h1,h2,h3{font-family:"Playfair Display",Georgia,"Times New Roman",serif;letter-spacing:-.005em}
+body *{font-variant-numeric:lining-nums}
+</style>
 <style>
+@font-face{font-family:"Playfair Display";src:url("../fonts/playfair-display-latin-wght-normal.woff2") format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("../fonts/source-sans-3-latin-wght-normal.woff2") format("woff2");font-weight:200 900;font-display:swap}
+
 :root{
   --ink:#10222E;
   --ink-2:#1B3444;
@@ -20,7 +27,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Archivo",system-ui,sans-serif;color:var(--text);background:var(--white);font-size:1.0625rem;line-height:1.6}
+body{font-family:"Source Sans 3",system-ui,sans-serif;color:var(--text);background:var(--white);font-size:1.0625rem;line-height:1.6}
 img,svg{display:block;max-width:100%}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--hivis);outline-offset:3px}
@@ -58,7 +65,7 @@ a{color:inherit}
 .diagram .pipe{stroke:var(--line);stroke-width:2.5;fill:none}
 .diagram .equip{stroke:#D7E2E8;stroke-width:2.5;fill:var(--ink-2)}
 .diagram .flow{stroke:var(--hivis);stroke-width:3;fill:none;stroke-dasharray:10 14;animation:flow 2.2s linear infinite}
-.diagram .tag{font-family:"Archivo",sans-serif;font-size:11px;fill:#9FB3C0;font-stretch:100%;letter-spacing:.04em}
+.diagram .tag{font-family:"Source Sans 3",sans-serif;font-size:11px;fill:#9FB3C0;font-stretch:100%;letter-spacing:.04em}
 @keyframes flow{to{stroke-dashoffset:-48}}
 @media (prefers-reduced-motion:reduce){.diagram .flow{animation:none}}
 
@@ -128,6 +135,8 @@ input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;b
 input:focus,select:focus,textarea:focus{outline:3px solid var(--hivis);outline-offset:0;border-color:var(--ink)}
 textarea{min-height:120px;resize:vertical}
 .form-note{font-size:.85rem;color:var(--muted)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-note{grid-column:1/-1;font-size:.88rem;color:var(--muted, #5B6170);margin:0}
 .form-status{grid-column:1/-1;font-weight:600;color:var(--ink);display:none;background:#FFF6CC;padding:12px 14px;border-left:4px solid var(--hivis)}
 
 /* footer */
@@ -361,6 +370,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         </select></div>
       <div class="full"><label for="message">Project details</label><textarea id="message" name="message" placeholder="Location, timeline and what you need help with"></textarea></div>
       <div class="full"><button class="btn btn-primary" type="submit">Send project details</button></div>
+      <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+      <p class="form-note full">Demo form: this is a concept website, so your message goes to its developer, Philipa Opoku, through a serverless AWS backend.</p>
       <p class="form-status" role="status" id="form-status"></p>
     </form>
   </div>
@@ -384,15 +395,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   });
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); btn.textContent = 'Menu'; }));
   const form = document.getElementById('quote-form'), status = document.getElementById('form-status');
-  form.addEventListener('submit', e => {
+  const API_URL = 'https://xvmajbyw26.execute-api.us-east-2.amazonaws.com/leads';
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const show = msg => { status.textContent = msg; status.style.display = 'block'; };
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    if (!form.name.value.trim() || !form.email.checkValidity() || !form.email.value) {
-      status.textContent = 'Please add your name and a valid work email so we can reply.';
-    } else {
-      status.textContent = 'Thanks, ' + form.name.value.trim().split(' ')[0] + '. This is a concept website, so your details were not sent anywhere.';
-      form.reset();
+    const name = form.elements['name'].value.trim();
+    const email = form.elements['email'];
+    const message = form.elements['message'].value.trim();
+    if (!name || !email.value || !email.checkValidity()) { show('Please add your name and a valid work email so we can reply.'); return; }
+    if (!message) { show('Please add a few project details.'); return; }
+    submitBtn.disabled = true; const label = submitBtn.textContent; submitBtn.textContent = 'Sending...';
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          site: 'Peakline Engineering', name, email: email.value.trim(),
+          company: form.elements['company'].value.trim(), service: form.elements['service'].value,
+          message, website: form.elements['website'].value
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        show('Thanks, ' + name.split(' ')[0] + '. Your message was delivered. This is a demo site, so Philipa Opoku will receive it.');
+        form.reset();
+      } else {
+        show(data.error || 'Sorry, something went wrong. Please try again in a minute.');
+      }
+    } catch (err) {
+      show('Sorry, the message could not be sent. Please check your connection and try again.');
+    } finally {
+      submitBtn.disabled = false; submitBtn.textContent = label;
     }
-    status.style.display = 'block';
   });
 </script>
 </body>
